@@ -109,7 +109,7 @@ CODE = (
     "   push esp                        ;" # pushes a pointer to MessaBoxA string onto the stack
     "   push [ebp+0xc]                  ;" # module address [EBP+0xc] = eax -> user32.dll
     "   call [ebp + 4]                  ;" # Call [EBP+4] = GetProcAddressStub
-    "   mov ebx, eax                     ;" # [EBP+0x18] = eax -> MessageBoxA
+    "   mov ebx, eax                     ;" # ebx = eax -> MessageBoxA
 
     " GetUserName:                      "
     "   sub esp, 0xfffffefc             ;" # Add some space on the stack for lpBuffer
@@ -134,7 +134,7 @@ CODE = (
     "   push edx                        ;" # lpCaption
     "   push edi                        ;" # lpText
     "   push ecx                        ;" # hWnd
-    "   call ebx                        ;" # ebx = eax -> MessageBoxA
+    "   call ebx                        ;" # ebx -> MessageBoxA
 
 
     " call_terminateprocess:            "
